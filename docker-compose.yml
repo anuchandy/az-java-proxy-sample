@@ -1,0 +1,23 @@
+version: '3.9'
+services:
+  kerberos-http-proxy-server:
+    image: kerberos-http-proxy-server:latest
+    build: kerberos-http-proxy-server          # the source directory to build the image from.
+    container_name: kerberos-http-proxy-server # for the kerberos proxy server running in this container to be discoverable in the network, the container name must be same the proxy server host-name.
+    networks:
+      - shared-network
+    ports:
+      - "80"                                   # expose the proxy server port internally.
+  kerberos-proxy-client:
+    image: kerberos-proxy-client:latest
+    build: kerberos-proxy-client               # the Java app source directory to build the image from.
+    container_name: kerberos-proxy-client
+    networks:
+      - shared-network
+    ports:
+      - "7777:7777"                           # expose the port outside for remote debugging the Java app.
+    depends_on:
+      kerberos-http-proxy-server:
+        condition: service_started            # wait for the kerberos proxy server to be started before running the Java app.
+networks:
+   shared-network: {}
