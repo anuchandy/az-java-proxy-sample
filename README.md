@@ -21,21 +21,23 @@ The repo has a docker project that launches two containers when it [runs](#runni
 1.	Clone the repo.
 2.	Open the folder `az-java-proxy-sample` in IntelliJ.
 3.	From the IntelliJ terminal switch to `Kerberos-proxy-client` and package the Java App
-      > mvn clean package spring-boot:repackage
+      > C:\code1\jva-proxy1\az-java-proxy-sample> cd kerberos-proxy-client
+      
+      > C:\code1\jva-proxy1\az-java-proxy-sample\kerberos-proxy-client> mvn clean package spring-boot:repackage
 
       ![Screenshot](readme-images/0_MvnBuild.png)
-4.	Right-click on the `docker-compose.yml` and select `Run 'docker-compose.yml: …'`
+5.	Right-click on the `docker-compose.yml` and select `Run 'docker-compose.yml: …'`
       ![Screenshot](readme-images/0_RunDockerCompose.png)
-5.	The Services panel should show that both containers as running.
+6.	The Services panel should show that both containers as running.
       ![Screenshot](readme-images/1_RunDockerComposeOutput.png)
-6.	The output of ` kerberos-http-client` container should show that the Java app was able to connect to a http endpoint through the Kerberos proxy.
+7.	The output of ` kerberos-http-client` container should show that the Java app was able to connect to a http endpoint through the Kerberos proxy.
       ![Screenshot](readme-images/2_RunDockerComposeOutput_JavaLog.png)
-7.	Make sure to stop the services to avoid port conflicts with later runs.
+8.	Make sure to stop the services to avoid port conflicts with later runs.
       ![Screenshot](readme-images/3_RunDockerComposeStop.png)
       ![Screenshot](readme-images/4_RunDockerComposeStopped.png)
 ## Debugging the docker services
 
-1.	Update the Docker run configuration to build the image always so that any code changes get picked (Run -> Edit Configurations).
+1.	Update the Docker run configuration (Run -> Edit Configurations) to build the image always so that any code changes get picked. (Note: In case of making code change remember to re-package the Java App before running the docker-compose.yml).
         ![Screenshot](readme-images/5_DockerComposeRunConfigBuildAlways.png)
 2.	Add a Remote JVM Debug configuration.
       ![Screenshot](readme-images/6_RemoteJVMDebugAdd.png)
