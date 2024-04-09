@@ -1,6 +1,6 @@
 # Kerberos Proxy authentication and Java
 
-The repo has a docker project that launches two containers when it runs,
+The repo has a docker project that launches two containers when it [runs](#running-the-docker-services),
 1.	kerberos-http-proxy-server: An HTTP proxy configured with Kerberos authentication.
 2.	kerberos-http-client: A Java application connects to any external http endpoint through the above proxy.
 
@@ -8,6 +8,13 @@ The repo has a docker project that launches two containers when it runs,
 
 1.	[Docker](https://docs.docker.com/desktop/install/windows-install/).
 2.	[IntelliJ]( https://www.jetbrains.com/idea/download/?section=windows) with [Docker plugin]( https://www.jetbrains.com/help/idea/docker.html#install_docker). The plugin is available by default in IntelliJ IDEA Ultimate.
+3.    Java 11 (any higher version should work, but 11 is what is used to develop the sample)
+```
+      $ mvn --version
+      Apache Maven 3.8.6
+      Maven home: <path>/apache-maven-3.8.6
+      Java version: 11.0.22, vendor: Azul Systems, Inc., runtime: <path>/Zulu/zulu-11
+```
 
 ## Running the docker services
 
