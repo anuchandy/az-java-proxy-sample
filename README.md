@@ -4,6 +4,9 @@ The repo has a docker project that launches two containers when it [runs](#runni
 1.	kerberos-http-proxy-server: An HTTP proxy configured with Kerberos authentication.
 2.	kerberos-http-client: A Java application connects to any external http endpoint through the above proxy.
 
+> [!CAUTION]
+> Please be aware that the setup is just for testing purposes, and I cannot guarantee that the settings I use in the example are sufficiently secure. I'm not a specialist in details of Kerberos security protocol. Consult expert for the correct and secure use in real world scenarios.
+
 ## Prerequisite
 
 1.	[Docker](https://docs.docker.com/desktop/install/windows-install/).
